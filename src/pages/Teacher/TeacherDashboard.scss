@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.teacher-dashboard {
+  h2 {
+    color: $card-blue-2;
+    font-weight: $font-weight-bold;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+
+    li {
+      background: $card-bg;
+      padding: 12px 14px;
+      border-radius: $radius-sm;
+      @include elevation(1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .meta { color: $muted-foreground; font-size: 13px; }
+    }
+  }
+}
+
+/* teacher/admin can reuse this: change color tokens for headings */

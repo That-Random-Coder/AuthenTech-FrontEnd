@@ -1,0 +1,240 @@
+// /* src/styles/landing.scss */
+// .landing-section {
+//   padding: 100px 0;
+//   position: relative;
+//   overflow: visible;
+// }
+
+// .landing-grid {
+//   display: grid;
+//   grid-template-columns: 1fr minmax(340px, 920px) 1fr;
+//   gap: 24px;
+//   align-items: center;
+//   width: 100%;
+// }
+
+// /* Where content sits */
+// .l-content { grid-column: 1 / 2; }
+// .c-content { grid-column: 2 / 3; }
+// .r-content { grid-column: 3 / 4; }
+
+// /* make sure center column can stay empty to reveal QR */
+// .center-empty { /* intentionally empty center column; nothing to add */ }
+
+// /* Card style used across sections */
+// .section-card {
+//   background: rgba(255,255,255,0.98);
+//   padding: 28px;
+//   border-radius: 12px;
+//   box-shadow: 0 12px 36px rgba(11,22,45,0.06);
+//   color: #0b2e6b;
+// }
+
+// .section-title {
+//   font-size: 1.75rem;
+//   margin-bottom: 12px;
+//   color: #0b2e6b;
+//   font-weight: 700;
+// }
+
+// /* subheading and lists */
+// .section-sub {
+//   font-size: 1rem;
+//   margin-bottom: 18px;
+//   color: #344b6b;
+// }
+
+// /* Steps grid */
+// .steps-grid {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 18px;
+// }
+// .step {
+//   background: white;
+//   padding: 16px;
+//   border-radius: 10px;
+//   box-shadow: 0 6px 20px rgba(11,22,45,0.04);
+// }
+// .step-num {
+//   display:inline-block;
+//   background:#f1f6ff;
+//   color:#163a8a;
+//   font-weight:700;
+//   padding:6px 10px;
+//   border-radius:8px;
+//   margin-bottom:8px;
+// }
+
+// /* Feature list / microservice cards */
+// .micro-grid {
+//   display:grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap:18px;
+// }
+// .micro-card {
+//   background: white;
+//   padding: 16px;
+//   border-radius:10px;
+//   box-shadow: 0 8px 26px rgba(11,22,45,0.04);
+// }
+
+// /* CTA */
+// .mid-cta {
+//   text-align:center;
+// }
+// .btn {
+//   display:inline-block;
+//   padding: 10px 18px;
+//   border-radius: 10px;
+//   font-weight:600;
+//   margin: 8px;
+//   text-decoration:none;
+// }
+// .btn-primary { background:#ffb220; color:#10233a; }
+// .btn-outline { border:1px solid #cfddee; color:#10233a; background:transparent; }
+
+// /* Responsive */
+// @media (max-width: 900px) {
+//   .landing-grid { grid-template-columns: 1fr; }
+//   .l-content, .c-content, .r-content { grid-column: 1 / -1; }
+//   .steps-grid { grid-template-columns: 1fr; }
+//   .micro-grid { grid-template-columns: 1fr; }
+// }
+
+
+/* src/styles/landing.scss */
+
+.landing-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: visible;
+}
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(340px, 920px) 1fr;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Where content sits */
+.l-content, .r-content {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  text-align: center; /* Ensure text content is centered */
+}
+
+.l-content { grid-column: 1 / 2; }
+.c-content { grid-column: 2 / 3; }
+.r-content { grid-column: 3 / 4; }
+
+/* make sure center column can stay empty to reveal QR */
+.center-empty {}
+
+/* Card style used across sections */
+.section-card {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(11, 22, 45, 0.06);
+  color: #0b2e6b;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 12px;
+  color: #0b2e6b;
+  font-weight: 700;
+}
+
+.section-sub {
+  font-size: 1rem;
+  margin-bottom: 18px;
+  color: #344b6b;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.step {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(11, 22, 45, 0.04);
+}
+
+.step-num {
+  display: inline-block;
+  background: #f1f6ff;
+  color: #163a8a;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.micro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.micro-card {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 8px 26px rgba(11, 22, 45, 0.04);
+}
+
+.mid-cta {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 8px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #ffb220;
+  color: #10233a;
+}
+
+.btn-outline {
+  border: 1px solid #cfddee;
+  color: #10233a;
+  background: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .landing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .l-content,
+  .c-content,
+  .r-content {
+    grid-column: 1 / -1;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .micro-grid {
+    grid-template-columns: 1fr;
+  }
+}

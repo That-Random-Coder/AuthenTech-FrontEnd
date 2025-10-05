@@ -1,0 +1,175 @@
+// @import "../../styles/variables";
+// @import "../../styles/mixins";
+
+// .admin-dashboard {
+//   h2 {
+//     color: $card-blue-2;
+//     font-weight: $font-weight-bold;
+//   }
+
+//   ul {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+//     display: grid;
+//     gap: 12px;
+
+//     li {
+//       background: $card-bg;
+//       padding: 12px 14px;
+//       border-radius: $radius-sm;
+//       @include elevation(1);
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       .meta { color: $muted-foreground; font-size: 13px; }
+//     }
+//   }
+// }
+
+// /* teacher/admin can reuse this: change color tokens for headings */
+$grad-start: #EAB261;
+$grad-end: #E38255;
+$teal: #8BD5C8;
+$blue: #A0D1DE;
+$green: #A0CC9C;
+$white: #ffffff;
+$muted: rgba(0,0,0,0.12);
+
+.admin-dashboard {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  max-width: 920px;
+  margin: 36px auto;
+  padding: 0 20px 60px;
+  position: relative;
+
+  .dashboard-hero {
+    height: 220px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, $grad-start 0%, $grad-end 100%);
+    box-shadow: 0 10px 30px rgba(227, 133, 85, 0.12), inset 0 -30px 40px rgba(255,255,255,0.08);
+    position: relative;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .hero-inner {
+      z-index: 2;
+      padding-top: 6px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-title {
+      color: $white;
+      font-weight: 800;
+      letter-spacing: 4px;
+      font-size: 56px;
+      margin: 0;
+      text-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -4%;
+      right: -4%;
+      bottom: -48px;
+      height: 120px;
+      background: #ffffff;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      z-index: 1;
+      box-shadow: 0 -6px 16px rgba(0,0,0,0.04);
+    }
+  }
+
+  .icon-row {
+    position: relative;
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    margin-top: -46px;
+    z-index: 3;
+
+    .icon-tile {
+      width: 86px;
+      height: 86px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(16,24,40,0.08);
+      backdrop-filter: blur(6px);
+
+      svg { display: block; }
+
+      &.tile-green { background: linear-gradient(180deg, rgba(139,213,200,0.95), rgba(139,213,200,0.9)); }
+      &.tile-blue { background: linear-gradient(180deg, rgba(160,209,222,0.95), rgba(160,209,222,0.9)); }
+      &.tile-teal { background: linear-gradient(180deg, rgba(138,216,195,0.95), rgba(138,216,195,0.9)); }
+      &.tile-orange { background: linear-gradient(180deg, rgba(234,178,97,0.96), rgba(227,130,85,0.96)); }
+    }
+  }
+
+  .cards-grid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    justify-items: center;
+    z-index: 4;
+
+    .info-card {
+      width: 260px;
+      height: 150px;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(16,24,40,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 20px;
+
+      .card-content {
+        text-align: left;
+        width: 100%;
+
+        .label {
+          font-size: 16px;
+          opacity: 0.95;
+          font-weight: 700;
+        }
+
+        .value {
+          margin-top: 8px;
+          font-size: 22px;
+          font-weight: 800;
+          line-height: 1.05;
+        }
+        .medium{ font-size: 30px; }
+        .large { font-size: 44px; }
+      }
+
+      &.card-orange { background: linear-gradient(180deg, $grad-start 0%, $grad-end 100%); }
+      &.card-teal { background: linear-gradient(180deg, $teal 0%, rgba(139,213,200,0.85) 100%); }
+      &.card-blue { background: linear-gradient(180deg, $blue 0%, rgba(160,209,222,0.85) 100%); }
+      &.card-green { background: linear-gradient(180deg, $green 0%, rgba(160,204,156,0.85) 100%); }
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    bottom: 12px;
+    width: 18px;
+    height: 18px;
+    background: rgba(255,255,255,0.9);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.03);
+  }
+}

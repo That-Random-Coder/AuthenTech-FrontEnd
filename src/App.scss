@@ -1,0 +1,67 @@
+@import "./styles/variables";
+@import "./styles/layout";
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: $primary-black;
+  overflow-y: auto;
+}
+.main{
+  // height: 100vh;
+  width: 80vw;
+}
+
+.qr-svg svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* QR background base styles */
+.qr-bg {
+  position: fixed; /* already set inline in component, but keep in CSS too */
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0; /* must be below .main and other foreground elements (which use z-index:10+) */
+  opacity: 0.6; /* default visible state; component toggles opacity */
+  transition: opacity 280ms ease;
+  will-change: transform, opacity;
+}
+
+/* Size control for the injected SVG */
+.qr-svg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 760px;
+  max-height: 80vh;
+  shape-rendering: crispEdges;
+}
+
+/* Ensure main content is above QR background */
+.app-shell .main,
+.app-shell main {
+  position: relative;
+  z-index: 10; /* above the QR background */
+}
+
+/* if you use a header or navbar, give it a higher z-index too */
+.header,
+.navbar {
+  z-index: 20;
+}
+
+/* optional - a lightweight fade helper (if you want manual toggles) */
+.qr-bg.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

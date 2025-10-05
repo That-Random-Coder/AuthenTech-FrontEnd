@@ -1,0 +1,41 @@
+@import "variables";
+@import "mixins";
+
+* { box-sizing: border-box; }
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: $font-base;
+  background: $bg-page;
+  color: $text-dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+/* Utility text */
+.h1 {
+  font-size: 20px;
+  font-weight: $font-weight-bold;
+  color: $text-dark;
+}
+
+/* Buttons */
+.btn-cta {
+  @include flex-center(center, center);
+  background: linear-gradient(90deg, darken($accent-yellow, 6%), $accent-yellow);
+  color: #10203b;
+  padding: 10px 18px;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  border: none;
+  cursor: pointer;
+  @include elevation(1);
+  transition: transform .14s ease, box-shadow .14s ease;
+
+  &:hover { transform: translateY(-2px); @include elevation(2); }
+  &:active { transform: translateY(0); @include elevation(1); }
+}

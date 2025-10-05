@@ -1,0 +1,96 @@
+// src/pages/Auth/Register.scss
+@import "../../styles/_variables.scss";
+
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: $bg-page;
+  min-height: 80vh;
+}
+
+.register-card {
+  background: $primary-white;
+  padding: 32px;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+
+  .title {
+    font-size: 1.75rem;
+    font-weight: $font-weight-bold;
+    color: $primary-blue;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    color: $muted-foreground;
+    margin-bottom: 24px;
+  }
+
+  .form-error {
+    background: rgba(255, 0, 0, 0.08);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    color: #c62828;
+    padding: 8px;
+    border-radius: $radius-sm;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: $font-weight-medium;
+      font-size: 0.95rem;
+      color: $text-dark;
+
+      input {
+        margin-top: 6px;
+        padding: 10px 12px;
+        border-radius: $radius-sm;
+        border: 1px solid $gray-200;
+        font-family: $font-base;
+        font-size: 0.95rem;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-blue;
+          box-shadow: 0 0 0 3px rgba(30, 42, 120, 0.15);
+        }
+      }
+    }
+
+    .btn.full-width {
+      width: 100%;
+      margin-top: 8px;
+    }
+  }
+
+  .form-footer {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: $muted-foreground;
+
+    a {
+      color: $primary-blue;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

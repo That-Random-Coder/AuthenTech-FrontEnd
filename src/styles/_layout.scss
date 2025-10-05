@@ -1,0 +1,97 @@
+@import "variables";
+@import "mixins";
+
+.app-shell {
+  max-width: 1220px;
+  margin: 40px auto;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  background: transparent;
+  display: grid;
+  grid-template-columns: $sidebar-width 1fr;
+  min-height: 640px;
+  @include elevation(3);
+}
+
+/* left sidebar */
+.sidebar {
+  background: $sidebar-bg;
+  padding: 28px 20px;
+  border-right: 1px solid rgba(18,28,44,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  .brand {
+    font-weight: $font-weight-bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    svg { width: 36px; height: 36px; }
+  }
+
+  .nav {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: $radius-md;
+      color: $muted-foreground;
+      cursor: pointer;
+      font-weight: $font-weight-medium;
+      transition: background-color .12s ease, color .12s ease;
+
+      &:hover { background: rgba(23,34,57,0.02); color: $text-dark; }
+
+      &.active {
+        background: linear-gradient(90deg, rgba(47,84,255,0.06), rgba(47,84,255,0.03));
+        color: $text-dark;
+        box-shadow: inset 3px 0 0 $card-blue-2;
+      }
+    }
+  }
+}
+
+/* main content */
+.main {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .top-panel {
+    border-radius: $radius-lg;
+    padding: 26px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    @include gradient-card($panel-gradient-start, $panel-gradient-end);
+    @include elevation(1);
+
+    // decorative dark blobs similar to the image
+    &::after {
+      content: "";
+      position: absolute;
+      right: -12%;
+      top: -10%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03), rgba(255,255,255,0));
+      filter: blur(28px);
+      z-index: 0;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      z-index: 2;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+// src/styles/public.scss
+// Public-facing styles (self-contained).
+// Palette (derived from the values you supplied)
+$bg-page: #f3f6f8;
+$primary-blue: #1e2a78;
+$accent-yellow: #ffbf2e;
+$card-bg: #ffffff;
+$text-dark: #0f2136;
+$muted-foreground: #97a0ad;
+$radius: 12px;
+$radius-sm: 8px;
+$shadow: 0 12px 30px rgba(15,32,54,0.08);
+$shadow-soft: 0 8px 18px rgba(15,32,54,0.06);
+$container-max: 1100px;
+
+* { box-sizing: border-box; }
+.container { max-width: $container-max; margin: 0 auto; padding: 0 16px; }
+
+/* Header */
+.public-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: transparent;
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+
+  .logo {
+    font-family: system-ui, -apple-system, "Inter", Roboto, Arial;
+    color: $primary-blue;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    a { color: $text-dark; text-decoration: none; padding: 8px 10px; border-radius: $radius-sm; }
+
+    .btn {
+      &.btn-primary {
+        background: $accent-yellow;
+        color: $text-dark;
+        padding: 8px 14px;
+        border-radius: $radius-sm;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      &.btn-ghost {
+        background: transparent;
+        border: 1px solid rgba(15,32,54,0.06);
+        padding: 8px 12px;
+        border-radius: $radius-sm;
+      }
+    }
+  }
+
+  .nav-toggle { display: none; background: none; border: 0; }
+}
+
+/* Hero */
+.public-hero {
+  background: linear-gradient(180deg, $primary-blue, lighten($primary-blue, 6%));
+  color: white;
+  padding: 64px 0 48px;
+
+  .hero-inner { display: flex; gap: 32px; align-items: center; }
+
+  .hero-copy {
+    flex: 1;
+    h1 { font-size: 2.25rem; margin: 0 0 12px; line-height: 1.05; }
+    p { color: rgba(255,255,255,0.88); margin-bottom: 18px; max-width: 58ch; }
+
+    .hero-cta a { margin-right: 12px; }
+  }
+
+  .hero-visual { flex: 1; display:flex; justify-content:center; }
+  .device-mock { max-width: 420px; width: 100%; .mock-card {
+    background: $card-bg; color: $text-dark; border-radius: $radius; padding: 18px; box-shadow: $shadow;
+    .mock-title { font-weight:600; margin-bottom: 8px; }
+    .qr-placeholder { height: 160px; border-radius: 8px; background: linear-gradient(180deg,#eef3ff,#fff); display:flex; align-items:center; justify-content:center; color: $muted-foreground; margin-bottom: 12px; }
+    .mock-footer { font-size: 12px; color: $muted-foreground; }
+  }}
+}
+
+/* Features */
+.feature-section { padding: 44px 0; background: $bg-page; .section-title { margin-bottom: 18px; } }
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 12px;
+}
+.feature-card {
+  background: $card-bg;
+  border-radius: $radius;
+  padding: 18px;
+  box-shadow: $shadow-soft;
+  .feature-tag { font-size: 12px; color: $muted-foreground; margin-bottom: 8px; }
+  .feature-title { color: $primary-blue; margin: 0 0 8px; font-weight: 600; }
+  .feature-desc { color: $muted-foreground; margin: 0; }
+}
+
+/* Contact */
+.contact-main { padding: 36px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: start; }
+.contact-form label { display:block; margin-bottom: 12px; color: $text-dark; font-weight: 500;
+  input, textarea { width:100%; margin-top:8px; padding:10px 12px; border-radius: 8px; border:1px solid rgba(15,32,54,0.06); }
+}
+
+/* Footer */
+.public-footer {
+  padding: 28px 0;
+  .footer-inner { display:flex; align-items:center; justify-content:space-between; gap: 16px; font-size: 14px; color: $muted-foreground; }
+  .brand { color: $primary-blue; font-weight:700; }
+}
+
+@media (max-width: 960px) {
+  .public-header .site-nav { display: none; }
+  .public-header .nav-toggle { display: block; }
+  .public-header .site-nav.open { display:flex; position: absolute; right: 16px; top: 68px; background: $card-bg; flex-direction: column; padding: 12px; box-shadow: $shadow-soft; border-radius: 10px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .public-hero .hero-inner { flex-direction: column; text-align: center; }
+}

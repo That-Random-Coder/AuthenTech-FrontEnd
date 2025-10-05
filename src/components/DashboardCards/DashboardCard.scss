@@ -1,0 +1,52 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.dashboard-card {
+  width: 100%;
+  min-height: 120px;
+  border-radius: $radius-md;
+  padding: 18px;
+  position: relative;
+  color: white;
+  @include elevation(1);
+  overflow: hidden;
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .value {
+      font-size: 28px;
+      font-weight: $font-weight-bold;
+      line-height: 1;
+    }
+    .label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.9);
+    }
+  }
+
+  // color variants
+  &--blue {
+    @include gradient-card($card-blue-1, $card-blue-2);
+    @include blob-overlay(0.08, 220px, -20%, -30%);
+  }
+
+  &--teal {
+    @include gradient-card($card-teal, darken($card-teal, 8%));
+    @include blob-overlay(0.07, 200px, -30%, -20%);
+  }
+
+  &--green {
+    @include gradient-card($card-green, darken($card-green, 6%));
+    @include blob-overlay(0.06, 190px, -10%, -25%);
+  }
+
+  &--purple {
+    @include gradient-card($card-purple, darken($card-purple, 6%));
+    @include blob-overlay(0.06, 200px, -10%, -30%);
+  }
+}
