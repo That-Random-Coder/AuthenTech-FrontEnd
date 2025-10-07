@@ -16,10 +16,27 @@
 // };
 
 // export default AdminDashboard;
-import React from "react";
+import React, { useState } from "react";
 import "./AdminDashboard.scss";
+import axios from "axios";
+
+
 
 const AdminDashboard = () => {
+  const [lectureState, setLectureState] = useState([])
+  const createLecture = ()=> {
+    axios.post('http://localhost:1567/api/v1/private/lecture/create', {
+      "qr_id" : "AATY",
+      "teacher_id" : "b2d4e7f8-9a1b-4c6d-8f3e-234567890abc",
+      "course_id" : "c2f456a1-9d24-4c7e-85f3-9a5f4c1e7b3d",
+      "division_id" : "d1a2b3c4-e5f6-7890-abcd-1234567890ef"
+    }, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    }
+  ).then((response)=> setLectureState(Object.values(response.data.students)))
+  }
   return (
     <div className="admin-dashboard">
       <div className="dashboard-hero">
@@ -82,6 +99,12 @@ const AdminDashboard = () => {
             <div className="label">Total Attendance</div>
             <div className="value medium">70%</div>
           </div>
+        </div>
+        <button onClick={createLecture}>Create Lecture</button>
+        <div className="lecture-response">
+          {lectureState.map((item, i) => {
+            return <h1 key={i}>{item}</h1>
+          })}
         </div>
       </div>
     </div>
